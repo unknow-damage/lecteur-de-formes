@@ -90,7 +90,9 @@ public class Dessin extends JPanel {
     // Si aucune : renvoyer null
 
     for (Forme forme : formes) {
-      
+      if(forme.contient(point)){
+        return forme;
+      }
     }
 
     return null;
@@ -102,6 +104,13 @@ public class Dessin extends JPanel {
     // Renvoyer la liste des formes qui se trouvent sur la colonne donnée
     // (liste vide si aucune)
 
-    return null;
+    List<Forme> formesList = new ArrayList<Forme>();
+    for (Forme forme : formes) {
+      if(forme.contientX(col)){
+          formesList.add(forme);
+      }
+    }
+
+    return formesList;
   }
 }

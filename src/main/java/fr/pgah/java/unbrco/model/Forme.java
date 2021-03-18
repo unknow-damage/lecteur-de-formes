@@ -37,7 +37,14 @@ public class Forme {
     // renvoyer vrai si le x donné est dans l'espace horizontal de la forme
     // renvoyer faux sinon
 
-    return false;
+    int actualXInt = this.x;
+    int validX = actualXInt + longueur;
+    if (actualXInt <= x && x <= validX) {
+      return true;
+    }else{
+      return false;
+    }
+
   }
 
   public boolean contientY(int y) {
@@ -46,7 +53,14 @@ public class Forme {
     // renvoyer vrai si le y donné est dans l'espace vertical de la forme
     // renvoyer faux sinon
 
-    return false;
+    int actualYInt = this.y;
+    int validY = actualYInt + hauteur;
+    if (actualYInt <= y && y <= validY) {
+      return true;
+    }else{
+      return false;
+    }
+
   }
 
   public boolean contient(Point pt) {
@@ -55,7 +69,16 @@ public class Forme {
     // renvoyer vrai si le point donné est dans l'espace occupé par la forme
     // renvoyer faux sinon
 
-    return false;
+    int actualYInt = this.y;
+    int actualXInt = this.x;
+    int validY = actualYInt + hauteur;
+    int validX = actualYInt + hauteur;
+
+    if((actualYInt <= pt.getY() && validY >= pt.getY()) && (actualXInt <= pt.getX() && validX >= pt.getX())){
+        return true;
+    }else{
+      return false;
+    }
   }
 
   public void setLimites(Point basDroite) {
