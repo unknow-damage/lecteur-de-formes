@@ -1,5 +1,6 @@
 package fr.pgah.java.unbrco.lecteurs;
 
+import java.util.ArrayList;
 import fr.pgah.java.unbrco.model.Dessin;
 import fr.pgah.java.unbrco.model.Forme;
 import fr.pgah.java.unbrco.ui.EditeurDeFormes;
@@ -23,6 +24,9 @@ public class LecteurDeDessin implements ActionListener {
 
     this.dessin = dessin;
     this.timer = timer;
+    this.colonneEnCours=0;
+    this.dansLaColonnePrecedente = new ArrayList<Forme>();
+    this.dansLaColonneCourante = new ArrayList<Forme>();
   }
 
   @Override
@@ -60,11 +64,15 @@ public class LecteurDeDessin implements ActionListener {
     // Sélectionner et jouer toutes les formes qui sont dans
     // la colonne courante et qui n'étaient pas dans la colonne précédente
 
-    for (Forme forme : dansLaColonneCourante) {
-      if (dansLaColonnePrecedente.contains(forme)) {
-        forme.deselectionnerEtStopper();
+
+    for (Forme forme : dansLaColonnePrecedente) {
+        if(!dansLaColonneCourante.contains(forme)){
+          if (dansLaColonnePrecedente.contains(forme)) {
+            forme.deselectionnerEtStopper();
+            forme.deselectionnerEtStopper();
+          }
+        }
       }
-    }
     
     for (Forme forme : dansLaColonneCourante) {
       if (!dansLaColonnePrecedente.contains(forme)) {

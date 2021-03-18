@@ -26,10 +26,8 @@ public class Dessin extends JPanel {
     // À COMPLÉTER
     // Renvoyer vrai si le dessin contient la forme donnée
 
-    for (Forme forme : formes) {
-      if (forme == f){
-        return true;
-      }
+    if(formes.contains(f)){
+      return true;
     }
 
     return false;
@@ -70,15 +68,8 @@ public class Dessin extends JPanel {
 
     // À COMPLÈTER
     // Supprimer la forme donnée du dessin
-    Integer indexCount = 0;
 
-    for (Forme forme : formes) {
-      if (forme == f){
-        formes.remove(indexCount);
-      }else{
-        indexCount += 1;
-      }
-    }
+    formes.remove(f);
 
   }
 
@@ -113,4 +104,9 @@ public class Dessin extends JPanel {
 
     return formesList;
   }
+
+  public void setColonneCourante(int colonneEnCours) {
+    this.colonneCourante = colonneEnCours;
+  }
+
 }

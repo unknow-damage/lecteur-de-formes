@@ -66,12 +66,16 @@ public class EditeurDeFormes extends JFrame {
     // À COMPLÉTER
     // Ajouter la forme donnée au dessin
 
+    dessinCourant.ajouterForme(f);
+
   }
 
   public void supprimerDuDessin(Forme f) {
 
     // À COMPLÉTER
     // Supprimer la forme donnée du dessin
+
+    dessinCourant.supprimerForme(f);
 
   }
 
@@ -172,4 +176,12 @@ public class EditeurDeFormes extends JFrame {
       return SwingUtilities.convertMouseEvent(e.getComponent(), e, dessinCourant);
     }
   }
+
+  public MidiSynth getMidiSynth() {
+    return midiSynth;
+  }
+
+public Dessin getDessinCourant() {
+    return dessinCourant;
+}
 }

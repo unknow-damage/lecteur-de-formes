@@ -147,4 +147,12 @@ public class Forme {
   private int convertirCoordVersNote(int y) {
     return 70 - y / 12;
   }
+
+public void setColonneJouee(int i) {
+  colonneJouee = i;
+}
+
+public int getLongueur() {
+  return longueur;
+}
 }

@@ -1,5 +1,6 @@
 package fr.pgah.java.unbrco.ui.outils;
 
+import fr.pgah.java.unbrco.model.Dessin;
 import fr.pgah.java.unbrco.model.Forme;
 import fr.pgah.java.unbrco.ui.EditeurDeFormes;
 
@@ -38,6 +39,13 @@ public class OutilDeplacer extends Outil {
     // Sélectionner et jouer la forme qui se trouve au point cliqué.
     // Doit également gérer l'initiation d'un "drag" éventuel.
     // Ne fait rien si pas de forme à cet endroit.
+
+    if(editeur.getFormeEn(e.getPoint()) !=null){
+      formeADeplacer = editeur.getFormeEn(e.getPoint());
+      formeADeplacer.selectionnerEtJouer();
+      this.debut=e.getPoint();
+    }
+      System.out.println(editeur.getFormeEn(e.getPoint()));
 
   }
 
